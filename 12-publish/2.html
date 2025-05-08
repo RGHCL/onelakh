@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Temporary Selection Letter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+
+        }
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        button:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+        img.header, img.footer {
+            width: 100%;
+            max-width: 1340px;
+            height: auto;
+        }
+        /* Updated input field styling */
+        input[type="text"] 
+        {
+            padding: 15px;
+            font-size: 18px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/Picture1.jpg" alt="header" class="header" style="width: 1340px">
+     <img src="Images/HomeIcon.png" width="40px" />
+        <h1 style=" font-weight:lighter;">
+                            Download 
+                            Temprory Selection Acknowledgement</h1>
+                        <br />
+                        <center>
+    <table>
+                            <tr>
+                                <td style="float: right; border: none;">
+                                    <span id="Label5" style="font-size: 14px">Application ID :</span>
+                                </td>
+       <td>
+                                    <input name="text" type="text"  id="applicationNumber" style="border: 1px solid #ccc; border-radius: 4px;
+                                        height: 25px; padding-left: 8px; box-sizing: border-box;"  />
+                                    
+                                </td>
+                               </tr>
+<tr>
+                                <td style="float: right; border: none;">
+                                    <span id="Span1" style="font-size: 14px">Mobile NO :</span>
+                                </td>
+                                <td>
+                                
+                                <div id="phoneNumberSection" class="hidden">
+            
+            <input type="text" style="border: 1px solid #ccc; border-radius: 4px;
+                                        height: 25px; padding-left: 8px; box-sizing: border-box;"  id="phoneNumber" readonly />
+        </div></td>
+       
+        
+        
+                               
+       </table>
+         <button style="width: 100px; border-top: 1px solid #96d1f8;
+                                        background: #65a9d7; background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+                                        background: -webkit-linear-gradient(top, #3e779d, #65a9d7); background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+                                        background: -ms-linear-gradient(top, #3e779d, #65a9d7); background: -o-linear-gradient(top, #3e779d, #65a9d7);
+                                        height: 30px; width: 100px; -webkit-border-radius: 6px; -moz-border-radius: 6px;
+                                        border-radius: 6px; -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0; -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+                                        box-shadow: rgba(0,0,0,1) 0 1px 0; text-shadow: rgba(0,0,0,.4) 0 1px 0; color: white;
+                                        font-size: 12px; font-family: Georgia, serif; text-decoration: none;" onclick="fetchPhoneNumber()" >Continue</button>
+        
+        <br />
+        <br />
+         <br />
+        <!--<!-- Get OTP Section -->
+        <div id="otpSection" class="hidden">
+            <button style="width: 100px; border-top: 1px solid #96d1f8;
+                                        background: #65a9d7; background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+                                        background: -webkit-linear-gradient(top, #3e779d, #65a9d7); background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+                                        background: -ms-linear-gradient(top, #3e779d, #65a9d7); background: -o-linear-gradient(top, #3e779d, #65a9d7);
+                                        height: 30px; width: 100px; -webkit-border-radius: 6px; -moz-border-radius: 6px;
+                                        border-radius: 6px; -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0; -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+                                        box-shadow: rgba(0,0,0,1) 0 1px 0; text-shadow: rgba(0,0,0,.4) 0 1px 0; color: white;
+                                        font-size: 12px; font-family: Georgia, serif; text-decoration: none;" id="getOtpButton" onclick="sendOtp()">Get OTP</button>
+        </div>
+
+        <!-- OTP Input Section -->
+        <div id="otpInputSection" class="hidden">
+            <span id="Label5" style="font-size: 14px">Enter OTP :</span>
+            <input type="text" id="otpInput"  style="border: 1px solid #ccc; border-radius: 4px;
+                                        height: 25px; padding-left: 8px; box-sizing: border-box;" />
+            <button style="width: 170px; border-top: 1px solid #96d1f8;
+                                        background: #65a9d7; background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+                                        background: -webkit-linear-gradient(top, #3e779d, #65a9d7); background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+                                        background: -ms-linear-gradient(top, #3e779d, #65a9d7); background: -o-linear-gradient(top, #3e779d, #65a9d7);
+                                        height: 50px; width: 100px; -webkit-border-radius: 6px; -moz-border-radius: 6px;
+                                        border-radius: 6px; -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0; -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+                                        box-shadow: rgba(0,0,0,1) 0 1px 0; text-shadow: rgba(0,0,0,.4) 0 1px 0; color: white;
+                                        font-size: 12px; font-family: Georgia, serif; text-decoration: none;" id="submitOtpButton" onclick="submitOtp()">Submit OTP</button>
+        </div>
+
+        <!-- Download Button Section -->
+        <div id="downloadSection" class="hidden">
+            <button style="width: 100px; border-top: 1px solid #96d1f8;
+                                        background: #65a9d7; background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+                                        background: -webkit-linear-gradient(top, #3e779d, #65a9d7); background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+                                        background: -ms-linear-gradient(top, #3e779d, #65a9d7); background: -o-linear-gradient(top, #3e779d, #65a9d7);
+                                        height: 30px; width: 100px; -webkit-border-radius: 6px; -moz-border-radius: 6px;
+                                        border-radius: 6px; -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0; -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+                                        box-shadow: rgba(0,0,0,1) 0 1px 0; text-shadow: rgba(0,0,0,.4) 0 1px 0; color: white;
+                                        font-size: 12px; font-family: Georgia, serif; text-decoration: none;" id="downloadButton" disabled>Download</button>
+        </div>
+   </center>
+
+    <footer>
+        <img src="./images/Picture2.jpg" alt="footer" class="footer">
+    </footer>
+
+    <script>
+        // Mock data - application number to phone number mapping
+        const applicationData = {
+            "20216052976": "7259301346",
+            "20216052004": "6361618482",
+            "20216055125": "6361713610",
+"20216052975":"9036899246",
+"20216051008":"9663403705",
+"20216049985": "7624930660",
+"20216051014":"9845381005",
+"20216048933": "7411060334",
+"20216053604":"9731532224",
+"20216051111":"9611746119",
+"20216049999":"7899246857",
+"20216049419":"8296100678",
+"20216050098":"9538348673",
+"20216051994":"9972222089",
+"20216051083":"9741113175",
+"20216051015":"9035285182",
+"20216052588":"8553020048",
+"20216052661":"8861991465",
+"20216053954":"8197603683",
+"20216052123":"9731212836"
+        };
+
+        // Store the session ID for OTP verification
+        let otpSessionId = '';
+
+        // Function to fetch phone number based on application number
+        function fetchPhoneNumber() {
+            const appNumber = document.getElementById('applicationNumber').value;
+            const phoneNumber = applicationData[appNumber];
+
+            if (phoneNumber) {
+                // Show the phone number section and set the value
+                document.getElementById('phoneNumber').value = phoneNumber;
+                document.getElementById('phoneNumberSection').classList.remove('hidden');
+                
+                // Enable the Get OTP button
+                document.getElementById('otpSection').classList.remove('hidden');
+            } else {
+                alert("Phone Number not found!");
+                document.getElementById('phoneNumberSection').classList.add('hidden');
+                document.getElementById('otpSection').classList.add('hidden');
+                document.getElementById('otpInputSection').classList.add('hidden');
+                document.getElementById('downloadSection').classList.add('hidden');
+            }
+        }
+
+        // Function to send OTP using 2Factor API
+        function sendOtp() {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const apiKey = "a0652f46-659c-11ef-8b60-0200cd936042"; // Replace with your 2Factor API key
+
+            fetch(`https://2factor.in/API/V1/${apiKey}/SMS/${phoneNumber}/AUTOGEN`)
+              .then(response => response.json())
+              .then(data => {
+                  if (data.Status === "Success") {
+                      alert("OTP Sent Successfully to " + phoneNumber);
+                      otpSessionId = data.Details; // Store OTP session ID for verification
+                      document.getElementById('otpInputSection').classList.remove('hidden');
+                  } else {
+                      alert("Failed to send OTP. Reason: " + data.Details);
+                  }
+              })
+              .catch(error => console.error("Error while sending OTP:", error));
+        }
+
+        // Function to handle OTP submission and verification
+        function submitOtp() {
+            const enteredOtp = document.getElementById('otpInput').value;
+            const apiKey = "a0652f46-659c-11ef-8b60-0200cd936042"; // Replace with your 2Factor API key
+
+            if (otpSessionId && enteredOtp) {
+                fetch(`https://2factor.in/API/V1/${apiKey}/SMS/VERIFY/${otpSessionId}/${enteredOtp}`)
+                  .then(response => response.json())
+                  .then(data => {
+                      if (data.Status === "Success") {
+                          alert("OTP Verified Successfully");
+                          document.getElementById('downloadSection').classList.remove('hidden');
+                          document.getElementById('downloadButton').disabled = false;
+                      } else {
+                          alert("OTP Verification failed. Reason: " + data.Details);
+                      }
+                  })
+                  .catch(error => console.error("Error while verifying OTP:", error));
+            } else {
+                alert("Please enter the OTP");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const pdfBaseUrl = 'pdfs/';
+            const pdfExtension = '.pdf';
+            const downloadButton = document.getElementById('downloadButton');
+            
+            downloadButton.addEventListener('click', () => {
+                const pdfName = document.getElementById('applicationNumber').value.trim();
+                
+                if (pdfName) {
+                    const pdfUrl = `${pdfBaseUrl}${pdfName}${pdfExtension}`;
+                    const link = document.createElement('a');
+                    link.href = pdfUrl;
+                    link.download = `${pdfName}${pdfExtension}`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else {
+                    alert('Please enter a valid application number.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
